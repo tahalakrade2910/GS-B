@@ -21,9 +21,9 @@ $pdo = $db->pdo();
 $baseUrl = '.';
 
 $catalogue = [
-    'Numériseur' => ['CR CLASSIC', 'CR VITA', 'CR VITAFLEX'],
-    'Capteur' => ['LUX FOCUS', 'DRXPLUS'],
     'Reprograph' => ['DV5700', 'DV5950', 'DV6950'],
+    'Numériseur' => ['CR CLASSIC', 'CRVITA FLEX', 'CR VITA'],
+    'Capteur' => ['LUX', 'FOCUS', 'DRX'],
 ];
 
 $dmTypes = array_keys($catalogue);
