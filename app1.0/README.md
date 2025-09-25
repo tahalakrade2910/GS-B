@@ -1,12 +1,13 @@
 # Backup Management App
 
-This project provides a simple PHP web application to register backups, store the associated files on an FTP server and track metadata in a MySQL database. It is designed to run with XAMPP or any PHP 8+ environment that includes the `pdo_mysql` and `ftp` extensions.
+This project provides a simple PHP web application to register backups, stock the associated files on an FTP server and track metadata in a MySQL database. It now also centralises the software packages for each device model so that technicians and users can download the latest versions on demand. It is designed to run with XAMPP or any PHP 8+ environment that includes the `pdo_mysql` and `ftp` extensions.
 
 ## Features
 
 - Record backup information in the `backups` database table.
 - Upload backup files directly to an FTP server for safe storage.
 - List previously recorded backups and download the stored file through the FTP connection.
+- Publish software packages grouped by device type/model so they can be downloaded whenever needed.
 - Responsive interface built with plain PHP, HTML and CSS.
 
 ## Project structure
@@ -17,14 +18,17 @@ Backapp/
 │   ├── Database.php        # Lightweight PDO wrapper
 │   └── FtpClient.php       # FTP helper used for uploads and downloads
 ├── database/
-│   └── backups.sql         # MySQL schema for the backups table
+│   ├── backups.sql             # MySQL schema for the backups table
+│   └── device_software.sql     # MySQL schema for the software table
 ├── assets/
 │   └── css/
 │       └── styles.css      # Basic styling for the application
 ├── bootstrap.php           # Loads configuration and autoloads classes
 ├── config.example.php      # Sample configuration (copy to config.php)
-├── download.php            # Streams a backup file from the FTP server
+├── download.php                # Streams a backup file from the FTP server
+├── download_software.php       # Streams a software file from the FTP server
 ├── index.php               # Main web interface
+├── logiciels.php               # Software management interface
 └── README.md
 ```
 
@@ -44,18 +48,27 @@ Backapp/
              'database' => 'backups',
              'username' => 'root',
              'password' => '',
+             'charset' => 'utf8mb4',
+             'ensure_backups_table' => true,
+             'ensure_device_software_table' => true,
          ],
-        'stock_database' => [
-            'host' => '127.0.0.1',
-            'database' => 'gestion_stock',
-            'username' => 'root',
-            'password' => '',
-        ],
+         'stock_database' => [
+             'host' => '127.0.0.1',
+             'database' => 'gestion_stock',
+             'username' => 'root',
+             'password' => '',
+             'charset' => 'utf8mb4',
+             'ensure_backups_table' => false,
+             'ensure_device_software_table' => false,
+         ],
          'ftp' => [
              'host' => '192.168.1.50',
              'username' => 'ftp-user',
              'password' => 'change-me',
+             'port' => 21,
+             'timeout' => 90,
              'base_path' => '/backups',
+             'software_base_path' => '/logiciels',
              'passive' => true,
          ],
      ];
@@ -65,6 +78,7 @@ Backapp/
 
 3. **Create the MySQL table**
    - Import `database/backups.sql` with phpMyAdmin or the MySQL console to create the `backups` table automatically. The application will also attempt to create the table on first run if it does not yet exist.
+   - Import `database/device_software.sql` to create the `device_software` table that stores the metadata for uploaded software packages.
 
 4. **Configure the FTP destination**
    - Ensure the FTP user has permission to upload to the folder configured by `base_path`.
@@ -75,9 +89,9 @@ Backapp/
 1. Launch Apache, MySQL and FileZilla Server from the XAMPP control panel.
 2. Use phpMyAdmin to create a database named `backups` (or another name that you reference in `config.php`).
 3. Import `database/backups.sql` so the `backups` table schema matches the application fields shown in the screenshots.
-4. Open the FileZilla Server interface and create an FTP user with write access to the directory where you want to store backup files (e.g. `C:\backups`).
-5. Update `config.php` with the XAMPP MySQL credentials (usually `root`/empty password) and the FTP account you created on FileZilla Server.
-6. Navigate to `http://localhost/Backapp/index.php` to start registering backups. The application will upload files through FileZilla Server and store metadata in the MySQL database.
+4. Open the FileZilla Server interface and create an FTP user with write access to the directories where you want to store backup files (e.g. `C:\backups`) and the software packages (e.g. `C:\logiciels`).
+5. Update `config.php` with the XAMPP MySQL credentials (usually `root`/empty password) and the FTP account you created on FileZilla Server. Set `software_base_path` to the remote folder that should contain the software packages.
+6. Naviguez vers `http://localhost/Backapp/index.php` pour commencer à enregistrer des sauvegardes. L'application téléversera les fichiers via FileZilla Server et stockera les métadonnées dans la base MySQL. Utilisez `logiciels.php` pour ajouter ou télécharger les logiciels.
 
 5. **Run the application**
    - Start Apache and MySQL in the XAMPP control panel.
@@ -89,6 +103,7 @@ Backapp/
 2. Select the backup file to upload. The file will be copied to the FTP server.
 3. Submit the form to store the record in MySQL.
 4. Use the download links in the table to retrieve a stored file from the FTP server whenever needed.
+5. Admin users can ouvrir `logiciels.php` pour téléverser un logiciel pour un type/modèle donné. Les utilisateurs sélectionnent le type et le modèle de DM pour afficher et télécharger les versions disponibles.
 
 ## Notes
 

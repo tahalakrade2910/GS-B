@@ -6,6 +6,8 @@ return [
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8mb4',
+        'ensure_backups_table' => true,
+        'ensure_device_software_table' => true,
     ],
     'stock_database' => [
         'host' => 'localhost',
@@ -14,6 +16,7 @@ return [
         'password' => '',
         'charset' => 'utf8mb4',
         'ensure_backups_table' => false,
+        'ensure_device_software_table' => false,
     ],
     'ftp' => [
         'host' => '127.0.0.1',   // since XAMPP + FileZilla are on same PC
@@ -22,6 +25,7 @@ return [
         'port' => 21,            // FTP runs here (not 14147!)
         'timeout' => 90,
         'base_path' => '/',      // because home dir = C:\Backupsdm
+        'software_base_path' => '/logiciels',
         'passive' => true,
     ],
 ];
