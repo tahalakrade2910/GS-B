@@ -81,7 +81,7 @@ SQL;
 CREATE TABLE IF NOT EXISTS `device_software` (
     `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `dm_type` VARCHAR(50) NOT NULL,
-    `dm_model` VARCHAR(100) NOT NULL,
+    `dm_model` VARCHAR(100) NULL,
     `version` VARCHAR(100) NOT NULL,
     `description` TEXT NULL,
     `file_name` VARCHAR(255) NOT NULL,

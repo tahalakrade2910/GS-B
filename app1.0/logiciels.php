@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errors[] = 'Le type de dispositif médical sélectionné est invalide.';
             }
 
-            if ($dmType !== '' && (!isset($catalogue[$dmType]) || !in_array($dmModel, $catalogue[$dmType], true))) {
+            if ($dmModel !== '' && (!isset($catalogue[$dmType]) || !in_array($dmModel, $catalogue[$dmType], true))) {
                 $errors[] = 'Le modèle sélectionné ne correspond pas au type de dispositif.';
             }
 
@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     $insertStatement->execute([
                         ':dm_type' => $dmType,
-                        ':dm_model' => $dmModel,
+                        ':dm_model' => $dmModel !== '' ? $dmModel : null,
                         ':version' => $version,
                         ':description' => $description !== '' ? $description : null,
                         ':file_name' => $remoteFilename,
@@ -257,8 +257,8 @@ if ($catalogueJson === false) {
                         </select>
                     </div>
                     <div class="form-field">
-                        <label for="dm_model">Modèle <span class="required">*</span></label>
-                        <select name="dm_model" id="dm_model" required>
+                        <label for="dm_model">Modèle (optionnel)</label>
+                        <select name="dm_model" id="dm_model">
                             <option value="">-- Sélectionnez --</option>
                             <?php
                             $selectedType = $_POST['dm_type'] ?? '';
@@ -318,9 +318,12 @@ if ($catalogueJson === false) {
                     $softwareId = (int) ($software['id'] ?? 0);
                     $downloadUrl = 'download_software.php?id=' . $softwareId;
                     ?>
-                    <article class="software-card" data-type="<?= e($software['dm_type']); ?>" data-model="<?= e($software['dm_model']); ?>">
+                    <?php
+                    $modelValue = trim((string) ($software['dm_model'] ?? ''));
+                    ?>
+                    <article class="software-card" data-type="<?= e($software['dm_type']); ?>" data-model="<?= e($modelValue); ?>">
                         <header class="software-card__header">
-                            <h3><?= e($software['dm_model']); ?></h3>
+                            <h3><?= e($modelValue !== '' ? $modelValue : 'Modèle non spécifié'); ?></h3>
                             <span class="software-card__type"><?= e($software['dm_type']); ?></span>
                         </header>
                         <dl class="software-card__meta">
