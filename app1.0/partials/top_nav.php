@@ -13,6 +13,7 @@ if ($baseUrl === '') {
 
 $dashboardUrl = $baseUrl . '/tableau_de_bord.php';
 $backupsUrl = $baseUrl . '/index.php';
+$softwareUrl = $baseUrl . '/logiciels.php';
 $stockUrl = $baseUrl . '/gestion_stock/accueil.php';
 $logoutUrl = $baseUrl . '/logout.php';
 $logoPath = $baseUrl . '/gestion_stock/logo.png';
@@ -30,6 +31,7 @@ $isAdminUser = $currentRole === 'admin';
     <div class="top-nav__links">
         <a href="<?php echo htmlspecialchars($dashboardUrl, ENT_QUOTES, 'UTF-8'); ?>">Tableau de bord</a>
         <a href="<?php echo htmlspecialchars($backupsUrl, ENT_QUOTES, 'UTF-8'); ?>">Sauvegardes DM</a>
+        <a href="<?php echo htmlspecialchars($softwareUrl, ENT_QUOTES, 'UTF-8'); ?>">Logiciels DM</a>
         <a href="<?php echo htmlspecialchars($stockUrl, ENT_QUOTES, 'UTF-8'); ?>">Gestion de stock</a>
         <?php if ($isAdminUser): ?>
             <a href="<?php echo htmlspecialchars($usersUrl, ENT_QUOTES, 'UTF-8'); ?>">Utilisateurs</a>

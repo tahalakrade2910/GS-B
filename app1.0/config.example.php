@@ -6,6 +6,8 @@ return [
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8mb4',
+        'ensure_backups_table' => true,
+        'ensure_device_software_table' => true,
     ],
     'stock_database' => [
         'host' => '127.0.0.1',
@@ -14,6 +16,7 @@ return [
         'password' => '',
         'charset' => 'utf8mb4',
         'ensure_backups_table' => false,
+        'ensure_device_software_table' => false,
     ],
     'ftp' => [
         'host' => '127.0.0.1',
@@ -22,6 +25,7 @@ return [
         'port' => 21,
         'timeout' => 90,
         'base_path' => '/backups',
+        'software_base_path' => '/logiciels',
         'passive' => true,
     ],
 ];

@@ -496,6 +496,142 @@ table td {
     margin-top: auto;
 }
 
+.software-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.software-card-form {
+    margin-bottom: 0;
+}
+
+.software-form .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem 1.5rem;
+}
+
+.software-form .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.software-form .form-field label {
+    font-weight: 600;
+}
+
+.software-form textarea {
+    min-height: 120px;
+}
+
+.software-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.software-filters .filter-field {
+    flex: 1 1 220px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.software-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.software-card {
+    background-color: var(--card-background);
+    border: 1px solid rgba(30, 64, 175, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(30, 64, 175, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.software-card__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.software-card__header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.software-card__type {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background-color: rgba(59, 130, 246, 0.15);
+    color: var(--primary-dark);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.software-card__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.software-card__meta div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.software-card__meta dt {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--muted-text);
+    margin: 0;
+}
+
+.software-card__meta dd {
+    margin: 0;
+    font-weight: 600;
+}
+
+.software-card__description {
+    margin: 0;
+    color: var(--muted-text);
+    line-height: 1.55;
+}
+
+.software-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.software-card__actions form {
+    margin: 0;
+}
+
+.software-card__actions .button-link {
+    flex: 1 1 auto;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--muted-text);
+    padding: 2rem 0;
+}
+
 @media (max-width: 720px) {
     .card {
         padding: 1.25rem;
@@ -516,6 +652,11 @@ table td {
     }
 
     .table-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .software-card__actions {
         flex-direction: column;
         align-items: stretch;
     }

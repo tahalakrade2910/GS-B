@@ -37,6 +37,11 @@ $isAdmin = $userRole === 'admin';
             <a class="button-link" href="index.php">Accéder aux sauvegardes</a>
         </article>
         <article class="portal-card">
+            <h2>Logiciels DM</h2>
+            <p>Mettez à disposition les logiciels officiels pour chaque dispositif médical et téléchargez-les dès que nécessaire.</p>
+            <a class="button-link" href="logiciels.php">Voir les logiciels</a>
+        </article>
+        <article class="portal-card">
             <h2>Gestion de stock</h2>
             <p>Consultez l'inventaire, ajoutez ou modifiez des pièces et administrez les utilisateurs autorisés. Toutes les actions respectent désormais la même identité visuelle.</p>
             <a class="button-link" href="gestion_stock/accueil.php">Accéder au stock</a>

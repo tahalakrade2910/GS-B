@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS `device_software` (
+    `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `dm_type` VARCHAR(50) NOT NULL,
+    `dm_model` VARCHAR(100) NOT NULL,
+    `version` VARCHAR(100) NOT NULL,
+    `description` TEXT NULL,
+    `file_name` VARCHAR(255) NOT NULL,
+    `file_type` VARCHAR(255) DEFAULT NULL,
+    `added_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
