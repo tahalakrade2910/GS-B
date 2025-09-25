@@ -542,9 +542,9 @@ a.back-home:hover {
   const currentLieu = <?= json_encode($currentLieu) ?>;
   document.addEventListener("DOMContentLoaded", function () {
     const famillesParGroupe = {
-      "Reprographe": ["DV5950", "DV5700", "DV6950"],
-      "Numériseur": ["CR VITA FLEX", "CR CLASSIC", "CR VITA"],
-      "Capteur plan": ["FOCUS", "DRX-1", "DRX PLUS"]
+      "Reprographe": ["DV5700", "DV5950", "DV6950"],
+      "Numériseur": ["CR CLASSIC", "CRVITA FLEX", "CR VITA"],
+      "Capteur plan": ["LUX", "FOCUS", "DRX"]
     };
 
     const references = <?= json_encode($references) ?>;
@@ -656,9 +656,9 @@ a.back-home:hover {
     }
 
     const famillesParGroupe = {
-      "Reprographe": ["DV5950", "DV5700", "DV6950"],
-      "Numériseur": ["CR VITA FLEX", "CR CLASSIC", "CR VITA"],
-      "Capteur plan": ["FOCUS", "DRX-1", "DRX PLUS"]
+      "Reprographe": ["DV5700", "DV5950", "DV6950"],
+      "Numériseur": ["CR CLASSIC", "CRVITA FLEX", "CR VITA"],
+      "Capteur plan": ["LUX", "FOCUS", "DRX"]
     };
 
     const groupeSelect = document.getElementById("groupe");
