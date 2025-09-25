@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="420" height="160" viewBox="0 0 420 160" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#60a5fa"/>
+            <stop offset="100%" stop-color="#1d4ed8"/>
+        </linearGradient>
+    </defs>
+    <rect width="420" height="160" fill="none"/>
+    <g transform="translate(32,28)">
+        <g fill="none" stroke="url(#leafGradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M48 4c-12 14-18 29-18 44 0 26 18 46 18 46s18-20 18-46c0-15-6-30-18-44z"/>
+            <path d="M48 38c-8 6-18 9-30 9 5 16 18 29 30 34"/>
+            <path d="M48 38c8 6 18 9 30 9-5 16-18 29-30 34"/>
+            <path d="M48 26c-10-6-19-8-30-8 4 11 11 20 22 25" opacity="0.75"/>
+            <path d="M48 26c10-6 19-8 30-8-4 11-11 20-22 25" opacity="0.75"/>
+        </g>
+        <text x="118" y="60" fill="#ffffff" font-size="48" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">IMAlliance</text>
+        <text x="122" y="94" fill="#bfdbfe" font-size="20" font-weight="600" letter-spacing="2" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">by T2S GROUP</text>
+    </g>
+</svg>

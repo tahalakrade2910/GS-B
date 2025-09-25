@@ -1,0 +1,246 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.container:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.logout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #6A0DAD;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.logout:hover {
+  color: #4A0A8D;
+}
+
+.toggle-btns {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.toggle-btns button {
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.toggle-btns button:hover {
+  background-color: #0056b3;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form select,
+form input,
+.search-controls input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+form select:focus,
+form input:focus,
+.search-controls input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  width: fit-content;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.search-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.search-controls button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color, #1d4ed8);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-controls button:hover {
+  background-color: var(--primary-dark, #1e3a8a);
+  box-shadow: 0 6px 15px rgba(29, 78, 216, 0.25);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+th,
+td {
+  border: 1px solid #e0e0e0;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9fb;
+}
+
+tr:hover {
+  background-color: #e9f1ff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+button.delete-btn:hover {
+  background-color: #b02a37;
+}
+
+.alert {
+  color: #dc3545;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.success {
+  color: #28a745;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+<style>
+  /* Élargir la fenêtre modale */
+  .modal-dialog {
+    max-width: 900px !important; /* Ajuste ici si tu veux encore plus large */
+    width: 90%;
+  }
+
+  .modal-content {
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  /* Bouton Enregistrer */
+  .btn-success {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: var(--primary-color, #1d4ed8);
+    border-color: var(--primary-color, #1d4ed8);
+    color: #fff;
+  }
+
+  .btn-success:hover,
+  .btn-success:focus {
+    background-color: var(--primary-dark, #1e3a8a);
+    border-color: var(--primary-dark, #1e3a8a);
+    color: #fff;
+  }
+
+  /* Bouton Annuler */
+  .btn-secondary {
+    margin-top: 10px;
+  }
+
+  /* Amélioration responsive */
+  @media (max-width: 768px) {
+    .modal-dialog {
+      width: 95%;
+    }
+  }
+</style>
